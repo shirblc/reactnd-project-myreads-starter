@@ -38,9 +38,12 @@ class BooksApp extends React.Component {
 
   // Update a book's current shelf
   updateBookShelf = (updatedBook) => {
+	  // update book list in the component state
 	  this.setState((currentState) => ({
 		  books: [...currentState.books.filter(book => book.id !== updatedBook.id), updatedBook]
 	  }))
+	  // update the backend's data
+	  BooksAPI.update(updatedBook, updatedBook.shelf);
   }
 
   render() {
