@@ -11,6 +11,9 @@ class Book extends React.Component {
 		this.setState({
 			currentShelf: value
 		});
+		let updatedBook = this.props.book;
+		updatedBook.shelf = value;
+		this.props.onShelfUpdate(updatedBook);
 	}
 	
 	// render method

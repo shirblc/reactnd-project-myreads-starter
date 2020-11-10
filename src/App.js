@@ -27,6 +27,13 @@ class BooksApp extends React.Component {
     showSearchPage: false
   }
 
+  // Update a book's current shelf
+  updateBookShelf = (updatedBook) => {
+	  this.setState((currentState) => ({
+		  books: [...currentState.books, updatedBook]
+	  }))
+  }
+
   render() {
     return (
       <div className="app">
@@ -59,7 +66,7 @@ class BooksApp extends React.Component {
             <div className="list-books-content">
               <div>
 				  {this.state.shelves.map(shelf => (
-					  <BookShelf key={shelf.value} shelfName={shelf.name} shelfBooks={this.state.books.filter(book => book.shelf == shelf.value)}/>
+					  <BookShelf key={shelf.value} shelfName={shelf.name} shelfBooks={this.state.books.filter(book => book.shelf == shelf.value)} onUpdate={this.updateBookShelf}/>
 				  ))}
               </div>
             </div>
