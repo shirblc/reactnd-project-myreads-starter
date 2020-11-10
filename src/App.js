@@ -39,7 +39,7 @@ class BooksApp extends React.Component {
   // Update a book's current shelf
   updateBookShelf = (updatedBook) => {
 	  this.setState((currentState) => ({
-		  books: [...currentState.books, updatedBook]
+		  books: [...currentState.books.filter(book => book.id !== updatedBook.id), updatedBook]
 	  }))
   }
 
