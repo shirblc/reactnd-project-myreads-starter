@@ -1,14 +1,14 @@
 import React from 'react';
 
 // Single book component
-export class Book extends Component {
+class Book extends React.Component {
 	// render method
 	render() {
 		return (
 			 <li key={this.props.key}>
 				<div className="book">
 				  <div className="book-top">
-					<div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("{this.props.book.coverUrl}")' }}></div>
+					<div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("{this.props.coverUrl}")' }}></div>
 					<div className="book-shelf-changer">
 					  <select>
 						<option value="move" disabled>Move to...</option>
@@ -19,10 +19,12 @@ export class Book extends Component {
 					  </select>
 					</div>
 				  </div>
-				  <div className="book-title">{this.props.book.title}</div>
-				  <div className="book-authors">{this.props.book.author}</div>
+				  <div className="book-title">{this.props.title}</div>
+				  <div className="book-authors">{this.props.author}</div>
 				</div>
 			  </li>
 		)
 	}
 }
+
+export default Book;
