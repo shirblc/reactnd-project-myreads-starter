@@ -5,6 +5,19 @@ import BookShelf from './BookShelf';
 
 class BooksApp extends React.Component {
   state = {
+	  // existing shelves
+	  shelves: [{
+		  name: 'Currently Reading',
+		  value: 'currentlyReading'
+	  }, {
+		  name: 'Want to Read',
+		  value: 'wantToRead'
+	  }, {
+		  name: 'Read',
+		  value: 'read'
+	  }],
+	  // existing books
+	  books: [],
     /**
      * TODO: Instead of using this state variable to keep track of which page
      * we're on, use the URL in the browser's address bar. This will ensure that
@@ -45,9 +58,9 @@ class BooksApp extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-				  <BookShelf shelfName={'Currently Reading'} shelfBooks={[]}/>
-				  <BookShelf shelfName={'Want to Read'} shelfBooks={[]}/>
-				  <BookShelf shelfName={'Read'} shelfBooks={[]}/>
+				  {this.state.shelves.map(shelf => (
+					  <BookShelf key={shelf.value} shelfName={shelf.name} shelfBooks={this.state.books.filter(book => book.shelf == shelf.value)}/>
+				  ))}
               </div>
             </div>
             <div className="open-search">
