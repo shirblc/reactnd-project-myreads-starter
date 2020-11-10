@@ -1,5 +1,5 @@
 import React from 'react'
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI';
 import './App.css'
 import BookShelf from './BookShelf';
 
@@ -25,6 +25,15 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false
+  }
+
+  // Get all books from the server upon inserting the component into the DOM
+  componentDidMount() {
+	  BooksAPI.getAll().then(books => {
+		 this.setState({
+			 books: books
+		 })
+	  })
   }
 
   // Update a book's current shelf
