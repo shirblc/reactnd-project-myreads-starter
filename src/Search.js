@@ -11,7 +11,10 @@ class Search extends React.Component {
 		this.setState({
 			searchQuery: newString
 		});
-		this.props.onSearch(newString);
+		// if the search query isn't empty, run the search
+		if(newString) {
+			this.props.onSearch(newString);
+		}
 	}
 
 	render() {
@@ -34,10 +37,12 @@ class Search extends React.Component {
 				</div>
 				<div className="search-books-results">
 				    <ol className="books-grid">
-						{
+						{this.props.matches.length ? (
 							this.props.matches.map(book => (
 								<Book key={book.id} book={book} onShelfUpdate={this.props.onUpdate}/>
-							))
+							))) : (
+							<div>No matches were found.</div>
+						)
 						}
 					</ol>
 				</div>
