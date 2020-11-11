@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Book from './Book';
 
 class Search extends React.Component {
 	state = {
@@ -10,7 +11,7 @@ class Search extends React.Component {
 		this.setState({
 			searchQuery: newString
 		});
-		console.log(this.state.searchQuery);
+		this.props.onSearch(newString);
 	}
 
 	render() {
@@ -32,7 +33,13 @@ class Search extends React.Component {
 				  </div>
 				</div>
 				<div className="search-books-results">
-				  <ol className="books-grid"></ol>
+				    <ol className="books-grid">
+						{
+							this.props.matches.map(book => (
+								<Book key={book.id} book={book} onShelfUpdate={this.props.onUpdate}/>
+							))
+						}
+					</ol>
 				</div>
           </div>
 		)

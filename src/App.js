@@ -19,7 +19,9 @@ class BooksApp extends React.Component {
 		  value: 'read'
 	  }],
 	  // existing books
-	  books: []
+	  books: [],
+	  // running search
+	  currentSearch: []
   }
 
   // Get all books from the server upon inserting the component into the DOM
@@ -40,6 +42,16 @@ class BooksApp extends React.Component {
 	  // update the backend's data
 	  BooksAPI.update(updatedBook, updatedBook.shelf);
   }
+  
+  // run a search
+  runSearch = (searchQuery) => {
+	  BooksAPI.search(searchQuery).then((books) => {
+		  // update the component state with those books
+		  this.setState({
+			  currentSearch: books
+		  })
+	  })
+  }
 
   render() {
     return (
@@ -51,7 +63,7 @@ class BooksApp extends React.Component {
 				} />
 			<Route path='/search' render={
 					() => (
-						<Search />
+						<Search matches={this.state.currentSearch} onSearch={this.runSearch} onUpdate={this.updateBookShelf} />
 					)
 				} />
       </div>
