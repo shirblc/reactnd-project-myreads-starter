@@ -23,6 +23,10 @@ class Search extends React.Component {
 		if(newString) {
 			this.props.onSearch(newString);
 		}
+		// otherwise clear the current matches
+		else {
+			this.props.clearMatches();
+		}
 	}
 
 	render() {
