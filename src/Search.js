@@ -1,3 +1,8 @@
+/*
+	Search
+	MyReads Component
+*/
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Book from './Book';
@@ -7,14 +12,27 @@ class Search extends React.Component {
 		searchQuery: ''
 	}
 
-	// upon rendering the component, clear the previous search and its results
+	/*
+  	Function Name: componentDidMount()
+  	Function Description: Clears the previous search and its results upon inserting the component into the DOM. This method is automatically triggered by React.
+  	Parameters: None.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	componentDidMount() {
 		this.setState({
 			searchQuery: ''
 		});
 		this.props.clearMatches();
 	}
-
+	
+	/*
+  	Function Name: searchUpdate()
+  	Function Description: Updates the search query upon update from the relevant text field..
+  	Parameters: newString (string) - string to be used as current search query.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	searchUpdate = (newString) => {
 		this.setState({
 			searchQuery: newString
@@ -28,7 +46,14 @@ class Search extends React.Component {
 			this.props.clearMatches();
 		}
 	}
-
+	
+	/*
+  	Function Name: render()
+  	Function Description: Renders the component.
+  	Parameters: None.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	render() {
 		return (
 			<div className="search-books">

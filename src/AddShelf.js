@@ -1,3 +1,8 @@
+/*
+	AddShelf
+	MyReads Component
+*/
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +13,13 @@ class AddShelf extends React.Component {
 		this.name = React.createRef();
 	}
 	
-	// Create shelf
+	/*
+  	Function Name: createShelf()
+  	Function Description: Creates a new shelf.
+  	Parameters: event (event) - Form submission event.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	createShelf = (event) => {
 		event.preventDefault();
 		// if there's a name in the input
@@ -20,7 +31,14 @@ class AddShelf extends React.Component {
 			window.alert('Shelf name cannot be empty!');
 		}
 	}
-
+	
+	/*
+  	Function Name: render()
+  	Function Description: Renders the component.
+  	Parameters: None.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	render() {
 		return (
 			<div className="search-books-bar">

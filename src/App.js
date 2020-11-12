@@ -28,7 +28,13 @@ class BooksApp extends React.Component {
 		  currentSearch: []
 	  }
 
-	// Get all books from the server upon inserting the component into the DOM
+	/*
+  	Function Name: componentDidMount()
+  	Function Description: Gets all books from the server upon inserting the component into the DOM. This method is automatically triggered by React.
+  	Parameters: None.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	componentDidMount() {
 		BooksAPI.getAll().then(books => {
 			this.setState({
@@ -37,7 +43,13 @@ class BooksApp extends React.Component {
 		})
 	}
 
-	// Update a book's current shelf
+	/*
+  	Function Name: updateBookShelf()
+  	Function Description: Updates a book's current shelf. This method is triggered by the Book component, upon changes to the book's shelf.
+  	Parameters: updatedBook (object) - the updated book object.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	updateBookShelf = (updatedBook) => {
 		// update book list in the component state
 		this.setState((currentState) => ({
@@ -47,7 +59,13 @@ class BooksApp extends React.Component {
 		BooksAPI.update(updatedBook, updatedBook.shelf);
 	}
   
-	// run a search
+	/*
+  	Function Name: runSearch()
+  	Function Description: Runs a search for the given search query and adds current shelves to the search results.
+  	Parameters: searchQuery (string) - the search query string.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	runSearch = (searchQuery) => {
 		BooksAPI.search(searchQuery).then((matchingBooks) => {
 			// check there are matches before checking each match
@@ -71,7 +89,13 @@ class BooksApp extends React.Component {
 		})
 	}
 	
-	// Create a new shelf
+	/*
+  	Function Name: createShelf()
+  	Function Description: Creates a new bookshelf. This method is triggered by AddShelf upon creating a new shelf.
+  	Parameters: shelfName (string) - the new shelf's name.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	createShelf = (shelfName) => {
 		// Add the shelf to the current state
 		this.setState((currentState) => ({
@@ -82,13 +106,26 @@ class BooksApp extends React.Component {
 		}))
 	}
 	
-	// clear search matches
+	/*
+  	Function Name: clearMatches()
+  	Function Description: Clears the search results (currentSearch) array.
+  	Parameters: None.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	clearMatches = () => {
 		this.setState({
 			currentSearch: []
 		})
 	}
-
+	
+	/*
+  	Function Name: render()
+  	Function Description: Renders the component.
+  	Parameters: None.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	render() {
 		return (
 			<div className="app">

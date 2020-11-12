@@ -1,3 +1,8 @@
+/*
+	Book
+	MyReads Component
+*/
+
 import React from 'react';
 
 // Single book component
@@ -6,7 +11,14 @@ class Book extends React.Component {
 		currentShelf: this.props.book.shelf
 	}
 
-	// update the shelf in which the book should be displayed
+	// 
+	/*
+  	Function Name: render()
+  	Function Description: Updates the shelf in which the book should be displayed. This method is triggered upon changes to the 'select' input's value.
+  	Parameters: value (string) - the new shelf in which to display the book.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	updateShelf = (value) => {
 		this.setState({
 			currentShelf: value
@@ -16,7 +28,13 @@ class Book extends React.Component {
 		this.props.onShelfUpdate(updatedBook);
 	}
 	
-	// render method
+	/*
+  	Function Name: render()
+  	Function Description: Renders the component.
+  	Parameters: None.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	render() {
 		return (
 			<li>

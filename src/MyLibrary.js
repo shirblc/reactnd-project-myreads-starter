@@ -1,8 +1,20 @@
+/*
+	MyLibrary
+	MyReads Component
+*/
+
 import React from 'react';
 import BookShelf from './BookShelf';
 import { Link } from 'react-router-dom';
 
 class MyLibrary extends React.Component {
+	/*
+  	Function Name: render()
+  	Function Description: Renders the component.
+  	Parameters: None.
+	----------------
+  	Programmer: Shir Bar Lev.
+  	*/
 	render() {
 		return (
 			<div className="list-books">
