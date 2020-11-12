@@ -82,8 +82,12 @@ class BooksApp extends React.Component {
 						)
 					} />
 				<Route path='/shelves/add' render={
-						() => (
-							<AddShelf createShelf={this.createShelf} />
+						({history}) => (
+							<AddShelf createShelf={(shelfName) => {
+								this.createShelf(shelfName);
+								// redirect the user back to the main page
+								history.push('/');
+							}} />
 						)
 					} />
 			</div>
