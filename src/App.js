@@ -49,10 +49,22 @@ class BooksApp extends React.Component {
   
 	// run a search
 	runSearch = (searchQuery) => {
-		BooksAPI.search(searchQuery).then((books) => {
+		BooksAPI.search(searchQuery).then((matchingBooks) => {
+			// Check if any of the search results is already in the library
+			matchingBooks.forEach(matchingBook => {
+				const libraryMatch = this.state.books.filter(book => matchingBook.id === book.id);
+				// if one the current search result is already in the library, set its shelf accordingly
+				if(libraryMatch.length !== 0) {
+					matchingBook.shelf = libraryMatch[0].shelf;
+				}
+				// otherwise set the book's shelf to 'none'
+				else {
+					matchingBook.shelf = 'none';
+				}
+			});
 			// update the component state with those books
 			this.setState({
-				currentSearch: books
+				currentSearch: matchingBooks
 			})
 		})
 	}
