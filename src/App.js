@@ -67,6 +67,13 @@ class BooksApp extends React.Component {
 			}]
 		}))
 	}
+	
+	// clear search matches
+	clearMatches = () => {
+		this.setState({
+			currentSearch: []
+		})
+	}
 
 	render() {
 		return (
@@ -78,7 +85,7 @@ class BooksApp extends React.Component {
 					} />
 				<Route path='/search' render={
 						() => (
-							<Search matches={this.state.currentSearch} onSearch={this.runSearch} onUpdate={this.updateBookShelf} shelves={this.state.shelves} />
+							<Search matches={this.state.currentSearch} onSearch={this.runSearch} onUpdate={this.updateBookShelf} shelves={this.state.shelves} clearMatches={this.clearMatches} />
 						)
 					} />
 				<Route path='/shelves/add' render={

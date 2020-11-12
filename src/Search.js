@@ -7,6 +7,14 @@ class Search extends React.Component {
 		searchQuery: ''
 	}
 
+	// upon rendering the component, clear the previous search and its results
+	componentDidMount() {
+		this.setState({
+			searchQuery: ''
+		});
+		this.props.clearMatches();
+	}
+
 	searchUpdate = (newString) => {
 		this.setState({
 			searchQuery: newString
