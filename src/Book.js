@@ -26,10 +26,11 @@ class Book extends React.Component {
 						<div className="book-shelf-changer">
 							<select value={this.state.currentShelf} onChange={(event) => (this.updateShelf(event.target.value))}>
 								<option value="move" disabled>Move to...</option>
-								<option value="currentlyReading">Currently Reading</option>
-								<option value="wantToRead">Want to Read</option>
-								<option value="read">Read</option>
-								<option value="none">None</option>
+								{
+									this.props.shelves.map(shelf => (
+										<option key={shelf.value} value={shelf.value}>{shelf.name}</option>
+									))
+								}
 							</select>
 						</div>
 					</div>

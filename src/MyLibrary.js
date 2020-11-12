@@ -12,7 +12,7 @@ class MyLibrary extends React.Component {
 				<div className="list-books-content">
 					<div>
 						{this.props.shelves.map(shelf => (
-							<BookShelf key={shelf.value} shelfName={shelf.name} shelfBooks={this.props.books.filter(book => book.shelf == shelf.value)} onUpdate={this.props.updateBookShelf}/>
+							<BookShelf key={shelf.value} shelfName={shelf.name} shelfBooks={this.props.books.filter(book => book.shelf == shelf.value)} onUpdate={this.props.updateBookShelf} shelves={this.props.shelves} />
 						))}
 					</div>
 				</div>
