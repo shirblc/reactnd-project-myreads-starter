@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import './App.css'
 import MyLibrary from './MyLibrary';
 import Search from './Search';
+import AddShelf from './AddShelf';
 
 class BooksApp extends React.Component {
 	  state = {
@@ -52,6 +53,17 @@ class BooksApp extends React.Component {
 			})
 		})
 	}
+	
+	// Create a new shelf
+	createShelf = (shelfName) => {
+		// Add the shelf to the current state
+		this.setState((currentState) => ({
+			shelves: [...currentState.shelves, {
+				name: shelfName,
+				value: shelfName.replaceAll(' ', '')
+			}]
+		}))
+	}
 
 	render() {
 		return (
@@ -64,6 +76,11 @@ class BooksApp extends React.Component {
 				<Route path='/search' render={
 						() => (
 							<Search matches={this.state.currentSearch} onSearch={this.runSearch} onUpdate={this.updateBookShelf} />
+						)
+					} />
+				<Route path='/shelves/add' render={
+						() => (
+							<AddShelf createShelf={this.createShelf} />
 						)
 					} />
 			</div>
