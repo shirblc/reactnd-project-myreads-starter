@@ -18,6 +18,9 @@ class BooksApp extends React.Component {
 		  }, {
 			  name: 'Read',
 			  value: 'read'
+		  }, {
+			  name: 'None',
+			  value: 'none'
 		  }],
 		  // existing books
 		  books: [],
