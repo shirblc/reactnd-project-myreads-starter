@@ -50,6 +50,8 @@ class BooksApp extends React.Component {
 	// run a search
 	runSearch = (searchQuery) => {
 		BooksAPI.search(searchQuery).then((matchingBooks) => {
+			// check there are matches before checking each match
+			matchingBooks.length &&
 			// Check if any of the search results is already in the library
 			matchingBooks.forEach(matchingBook => {
 				const libraryMatch = this.state.books.filter(book => matchingBook.id === book.id);
