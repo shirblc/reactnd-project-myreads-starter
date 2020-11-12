@@ -24,7 +24,7 @@ class AddShelf extends React.Component {
 		event.preventDefault();
 		// if there's a name in the input
 		if(this.name.current.value) {
-			this.props.createShelf(this.name.current.value);
+			this.props.shelves.filter(shelf => shelf.name.toLowerCase() === this.name.current.value).length ? window.alert('Shelf already exists. Change the name and try again.') : this.props.createShelf(this.name.current.value);
 		}
 		// if the input field is empty, alert the user
 		else {

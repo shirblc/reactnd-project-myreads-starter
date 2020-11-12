@@ -141,7 +141,7 @@ class BooksApp extends React.Component {
 					} />
 				<Route path='/shelves/add' render={
 						({history}) => (
-							<AddShelf createShelf={(shelfName) => {
+							<AddShelf shelves={this.state.shelves} createShelf={(shelfName) => {
 								this.createShelf(shelfName);
 								// redirect the user back to the main page
 								history.push('/');
