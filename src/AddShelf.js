@@ -44,7 +44,7 @@ class AddShelf extends React.Component {
 			<div className="search-books-bar">
 				<Link className="close-search" to='/'>Close</Link>
 				<form onSubmit={this.createShelf}>
-					<input type="text" placeholder="Enter bookself name" name="bookshelf-name" ref={this.name} />
+					<input type="text" placeholder="Enter bookshelf name" name="bookshelf-name" ref={this.name} />
 					<button>Add Shelf</button>
 				</form>
 			</div>
