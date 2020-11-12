@@ -2,7 +2,8 @@ import React from 'react';
 
 class AddShelf extends React.Component {
 	// CTOR
-	constructor() {
+	constructor(props) {
+		super(props);
 		this.name = React.createRef();
 	}
 	
