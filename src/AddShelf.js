@@ -8,18 +8,26 @@ class AddShelf extends React.Component {
 		this.name = React.createRef();
 	}
 	
-	// Check whether the shelf name is empty
-	isNameEmpty = () => {
-		return this.name.length > 0;
+	// Create shelf
+	createShelf = (event) => {
+		event.preventDefault();
+		// if there's a name in the input
+		if(this.name.current.value) {
+			this.props.createShelf(this.name.current.value);
+		}
+		// if the input field is empty, alert the user
+		else {
+			window.alert('Shelf name cannot be empty!');
+		}
 	}
 
 	render() {
 		return (
-			<div>
+			<div className="search-books-bar">
 				<Link className="close-search" to='/'>Close</Link>
-				<form onSubmit={this.props.createShelf}>
+				<form onSubmit={this.createShelf}>
 					<input type="text" placeholder="Enter bookself name" name="bookshelf-name" ref={this.name} />
-					<button disabled={this.isNameEmpty()}>Add Shelf</button>
+					<button>Add Shelf</button>
 				</form>
 			</div>
 		)
