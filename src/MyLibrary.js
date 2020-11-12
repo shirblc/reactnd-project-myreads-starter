@@ -19,6 +19,9 @@ class MyLibrary extends React.Component {
 				<div className="open-search">
 					<Link to='/search' id="search-button">Add a book</Link>
 				</div>
+				<div className="open-add">
+					<Link to='/shelves/add' id="add-button">Add a shelf</Link>
+				</div>
 			</div>
 		)
 	}
