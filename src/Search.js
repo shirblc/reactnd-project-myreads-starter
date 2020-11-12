@@ -38,7 +38,7 @@ class Search extends React.Component {
 					<ol className="books-grid">
 						{this.props.matches.length ? (
 							this.props.matches.map(book => (
-								<Book key={book.id} book={book} onShelfUpdate={this.props.onUpdate}/>
+								<Book key={book.id} book={book} onShelfUpdate={this.props.onUpdate} shelves={this.props.shelves} />
 							))) : (
 							<div>No matches were found.</div>
 							)
