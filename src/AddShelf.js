@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class AddShelf extends React.Component {
 	// CTOR
@@ -15,6 +16,7 @@ class AddShelf extends React.Component {
 	render() {
 		return (
 			<div>
+				<Link className="close-search" to='/'>Close</Link>
 				<form onSubmit={this.props.createShelf}>
 					<input type="text" placeholder="Enter bookself name" name="bookshelf-name" ref={this.name} />
 					<button disabled={this.isNameEmpty()}>Add Shelf</button>
